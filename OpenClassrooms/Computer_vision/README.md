@@ -2,9 +2,9 @@
 
 This project is focused on computer vision thanks to ML algorithms and especially convolutional neural networks (CNN). The aim of this project is to classify pictures of dogs depending on their corresponding breed. The data used in this project have been obtained from the Stanford Dogs Dataset available <a href=http://vision.stanford.edu/aditya86/ImageNetDogs/>here</a>. First the data format and distribution have been studied through a rapid EDA. Then the data have been imported in a tensorflow dataset in order to be fed to deep neural networks with high performances. Indeed, such image classifications are often performed using deep neural networks and more specifically convolutional neural networks (<a href=https://en.wikipedia.org/wiki/Convolutional_neural_network>see</a>).
 
-![image.png](attachment:ce13238e-f3ce-4798-b938-4236599437b3.png)
+![image](https://user-images.githubusercontent.com/108140094/210558778-af8f772c-5f0b-4707-bac7-e1c1d0de62ca.png)
 
-**Figure 1: Illustration of a convolutional neural network**
+*Figure 1: Illustration of a convolutional neural network*
 
 Several technics of image transformation (augmentation, whitening...) have been tested. These technics allow either to exacerbate the features or can reduce the model overfitting by generating some diversity in the dataset.
 
@@ -14,19 +14,25 @@ Finally, the prediction resulting from the model with the higher performances ha
 
 # EDA
 
-The dataset is composed of **20580** dog pictures separated between **120** breeds. In figure 3, two samples from the dataset hava been displayed as examples. It can be observed that the pictures can contain a complex background (with objects, vegetation, humans…).
+The dataset is composed of **20580** dog pictures separated between **120** breeds. In figure 2, two samples from the dataset hava been displayed as examples. It can be observed that the pictures can contain a complex background (with objects, vegetation, humans…).
 
-Figure 3: Examples of pictures present in the dataset
+![image](https://user-images.githubusercontent.com/108140094/210558930-33133336-bc27-4424-8be8-20a6ae10eb54.png)
 
-The average picture number per breed is represented graphically in figure 4.
+*Figure 2: Examples of pictures present in the dataset*
 
-Figure 4: Average picture number per breeds.
+The average picture number per breed is represented graphically in figure 3.
+
+![image](https://user-images.githubusercontent.com/108140094/210559001-53c46e1d-e5eb-4af2-b498-91b175cf0890.png)
+
+*Figure 3: Average picture number per breeds*
 
 Breeds are represented by a different number of pictures (with an average number of 171). However, this number seems balanced with a standard deviation of 23.
 
-The picture size (definition) is also an important parameter. The average pictures definitions per breeds is displayed in figure 5.
+The picture size (definition) is also an important parameter. The average pictures definitions per breeds is displayed in figure 4.
 
-Figure 5: Average picture size per breed
+![image](https://user-images.githubusercontent.com/108140094/210559044-8aab8d58-2095-449a-ac2c-cd86290cd94f.png)
+
+*Figure 4: Average picture size per breed*
 
 Breeds are represented with pictures of different sizes. Indeed, some breeds folders contain larger pictures as for the Saint-Bernard or Irish water spaniel.
 
@@ -45,9 +51,11 @@ Data augementation is performed as layers with 3 steps :
 -	Rotation
 -	Zoom
 
-Examples of pictures after data augmentation are displayed in figure 6.
+Examples of pictures after data augmentation are displayed in figure 5.
 
-Figure 6: Examples of images transformation after processing through augmentation layers
+![image](https://user-images.githubusercontent.com/108140094/210559322-13c2c0a6-41f8-4251-9e70-c3454e94f933.png)
+
+*Figure 5: Examples of images transformation after processing through augmentation layers*
 
 The augmentation layers could be applied to the dataset beforehand. However, it can also be incorporated to the model (as input layers) and employed only during model.fit. This way, at each epoch, the train dataset is processed randomly by the augmentation layers.
 
@@ -63,39 +71,57 @@ A comon preprocessing step in deep learning applied to images is to center the i
 
 The ZCA Whitening procedure allow to exacerbate images features. The process was inspired from https://www.kdnuggets.com/2018/10/preprocessing-deep-learning-covariance-matrix-image-whitening.html/3 and keras code : https://github.com/keras-team/keras-preprocessing/blob/master/keras_preprocessing/image/image_data_generator.py
 
-Examples of images whitening are displayed in figure 7. It is worth mentioning that ZHC whitening requires extensive calculations and thus a reduction of the image resolution (leading to possibly pixelated images).
+Examples of images whitening are displayed in figure 6. It is worth mentioning that ZHC whitening requires extensive calculations and thus a reduction of the image resolution (leading to possibly pixelated images).
 
-Figure 7: Example of images whitening
+![image](https://user-images.githubusercontent.com/108140094/210559475-3e98c1e6-f76d-4e54-bb38-e37843432d71.png)
+
+*Figure 6: Example of images whitening*
 
 ### Equalisation
 
 Image equalization is a method that allows to automatically adjust the contrast of a given picture. Several methods of equalizations exist and thus three are demonstrated here (see figure 8). The equalization is performed thanks to the library Skimage, the image processing library of SciKit-Learn. More info and part of the code can be found at https://scikit-image.org/docs/stable/auto_examples/color_exposure/plot_equalize.html#sphx-glr-auto-examples-color-exposure-plot-equalize-py
 
-Figure 8: Equalisation of pictures from the dataset
+![image](https://user-images.githubusercontent.com/108140094/210559672-e3d0b55a-2fbe-4d06-a013-f10aceed2f58.png)
+
+*Figure 7: Picture withour equalisation*
+
+![image](https://user-images.githubusercontent.com/108140094/210559568-07f6c592-b91f-40f0-8ef9-0a4614ba3402.png)
+
+*Figure 8: Equalisation of pictures from the dataset*
 
 ## Contour detection
 
 A common image preprocessing tool is contour detection. It allows highlighting object contours in an image. Previously employed for feature detection is image recognition (without deep learning) it can now be used to reduce the noise in the input data and thus improve the neural network generalization. Several technics of contour detections have been developed. Here as a demonstration, the Prewitt, Sobel and Scharr contour detection technics have been essayed (see figure 9.
 
-Figure 9: Example of contour detection on pictures form the dataset
+![image](https://user-images.githubusercontent.com/108140094/210559927-0de83f67-081e-4065-b479-0a31e4924a55.png)
+
+*Figure 9: Example of contour detection on pictures form the dataset*
 
 ## The superimposition of features highlighting technics
 
 The previously cited preprocessing methods can be superimposed in order to even more exacerbate pictures features. As an example, equalisation and contour detection have been applied to an image of the dataset in figure 10. In figure 11, ZCA whitening have also been added to the process. However, it appears clearly that the dimension reduction induced by the ZCA whitening leads to a highly pixelated image that is difficult to interpret.
 
-Figure 10: Example of Equalisation and contour detection on a sample image
+![image](https://user-images.githubusercontent.com/108140094/210559969-2d436337-8f1f-4258-af45-04a392517981.png)
 
-Figure 11: Example of equalisation, contour detection and ZCA whitening on a sample image.
+*Figure 10: Example of Equalisation and contour detection on a sample image*
+
+![image](https://user-images.githubusercontent.com/108140094/210560012-4f10a9c2-ab64-4ddb-b42e-06610b5d32fd.png)
+
+*Figure 11: Example of equalisation, contour detection and ZCA whitening on a sample image*
 
 # Training a CNN from scratch
 
 A first model is built from scratch. The architecture of the model is inspired from VGG-16 (see figure 12). However, training VGG-16 would result in too long processing time, thus, some convolutional layers have been removed in order to ease the model learning. In the same way, the final dense layers have been lightened in order to same computational resources.
 
-Figure 12: Schematic representation of the CNN model trained from scratch
+![image](https://user-images.githubusercontent.com/108140094/210560133-ad01f9bc-f692-413d-912b-38bb34cd4497.png)
+
+*Figure 12: Schematic representation of the CNN model trained from scratch*
 
 The performances of the models have been recorded with Tensorboard and are displayed in figure 13.
 
-Figure 13: Performances of the CNN trained from scratch
+![image](https://user-images.githubusercontent.com/108140094/210560180-f0d3df31-4371-4ca0-89a0-ed44a346f57e.png)
+
+*Figure 13: Performances of the CNN trained from scratch*
 
 A max accuracy of about 0.1 is obtained on the validation set with a clear presence of overfitting. Indeed, the model is complex enough to memorise the train dataset leading to high train accuracy.
 
@@ -103,21 +129,29 @@ A max accuracy of about 0.1 is obtained on the validation set with a clear prese
 
 A method to solve this issue is to use droupout layers (see figure 14).
 
-Figure 14: Schematic representation of the model trained form scratch including dropout layers
+![image](https://user-images.githubusercontent.com/108140094/210560282-93101204-9466-4ddb-8256-4bdcb4c23886.png)
+
+*Figure 14: Schematic representation of the model trained form scratch including dropout layers*
 
 A similar model to the previous one including a dropout layer between dense layers (more prone to memorization) have been assessed. The obtained performances are displayed in figure 15.
 
-Figure 15: Performances of the CNN trained from scratch with dropout layers.
+![image](https://user-images.githubusercontent.com/108140094/210560366-92b267aa-76bf-467b-b438-7a34a7a2497f.png)
+
+*Figure 15: Performances of the CNN trained from scratch with dropout layers*
 
 ## With data augmentation
 
 Another method for avoiding overfitting is to add data augmentation layers (as described earlier) to generate diversity in the dataset and thus avoid data memorisation. The previously described augmentation layers have been added as an input to the model (see figure 16).
 
-Figure 16: Schematic representation of the model trained from scratch including an augmentation layer
+![image](https://user-images.githubusercontent.com/108140094/210560479-f0db4692-90e8-4bb5-9c13-f5c7e6a219b2.png)
+
+*Figure 16: Schematic representation of the model trained from scratch including an augmentation layer*
 
 The performances obtained with this model are given in figure 17:
 
-Figure 17: performances of the CNN trained from scratch with an augmentation layer.
+![image](https://user-images.githubusercontent.com/108140094/210560569-66daf840-dd66-4691-a978-c6484d01eada.png)
+
+*Figure 17: performances of the CNN trained from scratch with an augmentation layer*
 
 It appears that the dropout layer limited overfitting in the first part of the training. However, after 4 epochs clear overfitting can be observed again. Similarly, data augmentation does not allow to completely avoid overfitting in this case. To completely avoid overfitting several technics could be investigated:
 -	Adding more dropout layers
@@ -130,7 +164,9 @@ It appears that the dropout layer limited overfitting in the first part of the t
 
 Prior data preprocessing (equalisation and contour detection) has been applied to the dataset before being fed to the CNN. The performances of the model are displayed in figure 18.
 
-Figure 18: Performances of the CNN with pre-processed data.
+![image](https://user-images.githubusercontent.com/108140094/210560762-532f494d-f444-432a-8fc3-895be5f31a25.png)
+
+*Figure 18: Performances of the CNN with pre-processed data*
 
 Again, the difference between the train and validation accuracy and loss suggest an overfitting of the model. Even though the data are augmented before getting fed to the model (with random rotation, zoom...) the model achieves to memorize the training data. This is explained by the low number of samples compared to the large number of targets (i.e., breeds). Trying to predict a lower number of breeds could allow higher performances and reduce overfitting.
 
@@ -144,11 +180,17 @@ The Strategy of transfer learning have been assessed with three popular models: 
 
 The model have been evaluated after freezing the first layers of the models and only training the last dense layers. The performances obtained with the different model are given in figure 19, 20 and 21.
 
-Figure 19: Performances obtained with frozen VGG16
+![image](https://user-images.githubusercontent.com/108140094/210560928-9e7b95b5-9767-4f43-96a4-fd698249bb08.png)
 
-Figure 20: Performances obtained with frozen ResNet50V2
+*Figure 19: Performances obtained with frozen VGG16*
 
-Figure 21: Performances obtained with frozen Xception
+![image](https://user-images.githubusercontent.com/108140094/210561017-b27b7b48-aebf-44d5-a14e-58a029b8e4ee.png)
+
+*Figure 20: Performances obtained with frozen ResNet50V2*
+
+![image](https://user-images.githubusercontent.com/108140094/210561244-96cd2529-0899-4da7-ad9e-52874171a323.png)
+
+*Figure 21: Performances obtained with frozen Xception*
 
 # Transfer learning with fine-tuning
 
@@ -156,11 +198,15 @@ As described earlier, a strategy of transfer learning with a fine-tuning of the 
 
 The performances of the models are given in figure 22 and 23.
 
-Figure 22: Performances of ResNet50V2 model after training of the dense and first layers of the model
+![image](https://user-images.githubusercontent.com/108140094/210561425-b0eb9707-fcfa-4224-805f-aecd96390fa9.png)
+
+*Figure 22: Performances of ResNet50V2 model after training of the dense and first layers of the model*
 
 This time, thanks to the fine-tuning of the model first layers, higher performances were obtained with validation losses and accuracy value equivalent to the Xception model. Only traces of overfitting can be observed at the end of the model training.
 
-Figure 23: Performances of VGG16 model after training of the dense and first layers of the model
+![image](https://user-images.githubusercontent.com/108140094/210561589-f106b24a-4ab8-4619-8a31-5255df8107ad.png)
+
+*Figure 23: Performances of VGG16 model after training of the dense and first layers of the model*
 
 Finetuning of the model VGG16 did not improve the model performances as the model seems to not be able to learn at all in this configuration.
 
@@ -171,25 +217,46 @@ The model with the higher performances was the model Xception after 3 epochs. Th
 ## Accuracy
 
 First the accuracy of the model has been measured with the metrics of the accuracy (see equation 1).
-Equation 1
+
+*Equation 1*
+
+![image](https://user-images.githubusercontent.com/108140094/210561961-9f5d9641-7f00-41c9-ad6c-b53b3920745f.png)
+
 As depicted in equation 1, the true negatives and thus 0 values are present in the numerator. However, as the target is one hot encoded, most of the values are 0 and thus can easily be true negatives. Thus, the number of true negatives is prevalent, leading to an accuracy above 95% for every predicted breeds. The measured accuracy for each breed is given in figure 24.
 
-Figure 24: Accuracy measure for the predicting each breed (with a zoom)
+![image](https://user-images.githubusercontent.com/108140094/210561714-4c2e67b7-a8b5-4146-9760-bc6cc48a1138.png)
+
+*Figure 24: Accuracy measure for the predicting each breed (with a zoom)*
+
 As the accuracy seems to not be the ideal metrics two other metrics have been employed, the precision and recall (see equation 2 and 3).
+
+*Equation 2*
+
+![image](https://user-images.githubusercontent.com/108140094/210562174-56fdaaa9-f166-4ebb-8407-d1018f51199e.png)
+
+*Equation 3*
+
+![image](https://user-images.githubusercontent.com/108140094/210562376-d0cfc039-79ad-4ae4-8dbe-6d43c3c4a173.png)
 
 ## Precision
 
 The precision is measuring the proportion of correct predictions among the positive prediction only. In our case, it indicates for a given breed the proportion that have been attributed falsely to dogs from other breeds. The measured precision for each breed is given in figure 25.
-Figure 25: Precision calculated on the prediction for each breed
+
+![image](https://user-images.githubusercontent.com/108140094/210562290-2250df87-e1b4-439b-bdc8-6e2ee2287aa8.png)
+
+*Figure 25: Precision calculated on the prediction for each breed*
+
 The Rhodesian_ridgeback corresponds to the class where the proportion of correct positive predictions is the lowest. The redbone seems to be the one that is the most mistaken with Rhodesian_ridgeback. Indeed, as shown in figure 26, the two breeds share a lot of physical similarities.
 
-Figure 26: Comparison between the Rhodesian Ridgeback and Redbone
+![image](https://user-images.githubusercontent.com/108140094/210562489-68c54048-f4aa-4c11-bbe6-b4a95858c436.png)
+
+*Figure 26: Comparison between the Rhodesian Ridgeback and Redbone*
 
 ## Recall
 
-Recall is a metric that indicates the proportion of true positives that were was identified correctly. In our case, it indicates for a given breed what is the proportion of other breeds that are falsely attributed by the model to picture of dogs of the first breed. The recall calculated for each breed is given in figure 27.
-Figure 27: Recall calculated on the prediction for each breed
-The breeds falsely attributed to Chihuahuas are
+Recall is a metric that indicates the proportion of true positives that were was identified correctly. In our case, it indicates for a given breed what is the proportion of other breeds that are falsely attributed by the model to picture of dogs of the first breed.
+
+The breeds falsely attributed to Chihuahuas were :
 -	Cardigan
 -	Brabancon_griffon
 -	Ibizan_hound
