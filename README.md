@@ -10,9 +10,9 @@ If you want more information about my **training** and **experiences** or if you
 
 -	[Estimation of polymer Tg through machine learning](https://github.com/Owlmium/Portfolio/tree/main/Prediction_of_polymers_Tg)
 
-- Kaggle project : RSNA Screening Mammography Breast Cancer Detection **(to be added soon)**
+- Kaggle project : RSNA Screening Mammography Breast Cancer Detection *(to be added soon)*
 
-- Application of GANs and VAEs to chemistry. **(to be added soon)**
+- Application of GANs and VAEs to chemistry. *(to be added soon)*
 
 **OpenClassroom projects**
 
