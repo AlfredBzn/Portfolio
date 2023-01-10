@@ -2,21 +2,25 @@
 
 # Welcome to my portfolio
 
-My name is **Alfred Bazin**, and this repository is a summary of the project I have worked including personal projects as well as projects completed during my training courses. It shows different aspects of machine learning and python programming I have explored. It demonstrates the workflow I have developed for **importing**, **cleaning** and **visualising data** taking advantage of a wide variety of **libraries**. The project includes models for **supervised** and **unsupervised machine learning** for **regression** as well as **classification** tasks.
+My name is **Alfred Bazin**, and this repository is a summary of the project I have worked on including personal projects as well as projects completed during my training courses. It shows different aspects of machine learning and python programming I have explored. It demonstrates the workflow I have developed for **importing**, **cleaning** and **visualising data** taking advantage of a wide variety of **libraries**. The project includes models for **supervised** and **unsupervised machine learning** for **regression** as well as **classification** tasks.
 
 ## Summary of the projects:
 
 -	[Estimation of polymer Tg through machine learning](https://github.com/Owlmium/Portfolio/tree/main/Prediction_of_polymers_Tg)
 
+- Kaggle project : RSNA Screening Mammography Breast Cancer Detection **(to be added soon)**
+
+- Application of GANs and VAEs to chemistry. **(to be added soon)**
+
 **OpenClassroom projects**
 
 *All OpenClassroom projects are based on real problematics and dataset either available on open-data platforms or in Kaggle projects.*
 -	[Project on computer vision: Classification of dog breeds with convolutional networks and transfer learning](https://github.com/Owlmium/Portfolio/tree/main/OpenClassrooms/Computer_vision)
--	[Project on supervised ML algorithms: Prediction of energy use and greenhouse gases emission for buildings]()
--	[Project on unsupervised ML algorithms: Clustering of customers from an online marketplace]()
+-	[Project on supervised ML algorithms: Prediction of energy use and greenhouse gases emission for buildings](https://github.com/Owlmium/Portfolio/tree/main/OpenClassrooms/Supervised_ML)
+-	[Project on unsupervised ML algorithms: Clustering of customers from an online marketplace](https://github.com/Owlmium/Portfolio/tree/main/OpenClassrooms/Non_supervised_ML)
 
-**EDX IBM project**
+**EDX IBM projects**
 
 *The work produced in the final project is presented. The project is based on the data of SpaceX obtained through web scrapping technics.*
--	[EDX/IBM Capstone project]()
+-	[EDX/IBM Capstone project](https://github.com/Owlmium/Portfolio/tree/main/EDX_IBM)
 
