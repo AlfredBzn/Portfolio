@@ -4,6 +4,8 @@
 
 My name is **Alfred Bazin**, and this repository is a summary of the project I have worked on including personal projects as well as projects completed during my training courses. It shows different aspects of machine learning and python programming I have explored. It demonstrates the workflow I have developed for **importing**, **cleaning** and **visualising data** taking advantage of a wide variety of **libraries**. The project includes models for **supervised** and **unsupervised machine learning** for **regression** as well as **classification** tasks.
 
+If you want more information about my **training** and **experiences** or if you want to **contact me**, here is the link to my [LinkedIn](https://www.linkedin.com/in/alfred-bazin/)
+
 ## Summary of the projects:
 
 -	[Estimation of polymer Tg through machine learning](https://github.com/Owlmium/Portfolio/tree/main/Prediction_of_polymers_Tg)
